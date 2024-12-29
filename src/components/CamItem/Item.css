@@ -1,0 +1,62 @@
+.cam-item {
+  width: 100%;
+  
+  overflow: hidden; 
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #00000015;
+  transition: 0.3s;
+  animation: fadeIn 1s;
+}
+.cam-item-img-container {
+  width: 100%;
+  height: 300px; /* Tetapkan tinggi tetap */
+  overflow: hidden; /* Pangkas gambar yang keluar dari kontainer */
+  border-radius: 15px 15px 0px 0px;
+  display: flex;
+  justify-content: center; /* Opsional: untuk memusatkan gambar */
+  align-items: center; /* Opsional: untuk memusatkan gambar */
+}
+.cam-item-img {
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  height: 100%;  /* Pastikan gambar selalu memenuhi tinggi kontainer */
+  object-fit: cover; 
+}
+.cam-item-info{
+  padding: 20px;
+
+}
+.cam-item-name-rating{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cam-item-name-rating p {
+  font-size: 20px;
+  font-weight: 500;
+}
+.cam-item-name-rating img{
+  width: 70px;
+}
+.cam-item-desc {
+  columns: #676767;
+  font-size: 12px;
+}
+.cam-item-price {
+  background: transparent;
+  margin-top: 10px;
+  display: block;
+  font-size: 15px;
+  color:#49557e ;
+  border: 1px solid skyblue;
+  padding: 10px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+.cam-item-price:hover{
+  background-color: #b6e7fd;
+}

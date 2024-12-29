@@ -1,0 +1,14 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/" },
+    { "src": "/success", "dest": "/" },
+    { "src": "/cancel", "dest": "/" },
+    { "src": "/inventory", "dest": "/" },
+    { "src": "/katalog", "dest": "/" },
+    { "src": "/login", "dest": "/" },
+    { "src": "/transaksi/(.*)", "dest": "/" },
+    { "src": "/transaksi-jam/(.*)", "dest": "/" }
+
+ 
+  ]
+}

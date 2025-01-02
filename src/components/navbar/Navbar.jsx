@@ -28,6 +28,7 @@ const Navbar = ({setShowLogin}) => {
         <Link to='/katalog' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>Katalog</Link>
         <Link to='/inventory' onClick={() => setMenu("Inventory")} className={menu === "Inventory" ? "active" : ""}>Inventory</Link>
         <a href='#footer' onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>contact us</a>
+        {!auth.user ? <button className='block lg:hidden' onClick={() => setShowLogin(true)}>sign in</button> : <button className='block lg:hidden' onClick={handleLogout}>Log out</button>} 
       </ul>
       <div className="navbar-right">
         {/* <img src={assets.search_icon} alt="" /> */}
@@ -35,7 +36,7 @@ const Navbar = ({setShowLogin}) => {
           <img src={assets.basket_icon} alt="" />
           <div className="dot"></div>
         </div> */}
-        {!auth.user ? <button onClick={() => setShowLogin(true)}>sign in</button> : <button onClick={handleLogout}>Log out</button>} 
+        {!auth.user ? <button className='hidden lg:block' onClick={() => setShowLogin(true)}>sign in</button> : <button className='hidden lg:block' onClick={handleLogout}>Log out</button>} 
         <div className="hamburger" onClick={toggleMenu}>
         <span className={`line ${isMenuOpen ? 'open' : ''}`}></span>
         <span className={`line ${isMenuOpen ? 'open' : ''}`}></span>

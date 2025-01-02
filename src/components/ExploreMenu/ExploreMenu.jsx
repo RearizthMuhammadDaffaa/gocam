@@ -2,12 +2,26 @@ import React, { useEffect, useState } from 'react'
 import "./exploreMenu.css"
 import { assets, menu_list } from '../../assets/frontend_assets/assets'
 import axios from 'axios'
+
+
+function MenuLoading() {
+  return  <div className="skeleton h-32 w-32 shrink-0 rounded-full"></div>
+}
+
 const ExploreMenu = ({category,setCategory,judul}) => {
   const [data,setData] = useState([]);
+  const [loading,setLoading] = useState(false);
   const getData = async ()=>{
-    const response = await axios.get(`${import.meta.env.VITE_API}merk`)
-    setData(response.data)
-    console.log(data);
+    try {
+      setLoading(true); 
+      const response = await axios.get(`${import.meta.env.VITE_API}merk`);
+      setData(response.data);
+      console.log(response.data); 
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setLoading(false); 
+    }
     
   }
   useEffect(()=>{  
@@ -24,6 +38,7 @@ const ExploreMenu = ({category,setCategory,judul}) => {
             </div>
         {data.map((item,index)=> {
           return (
+            loading ? <MenuLoading /> :
             <div onClick={()=>setCategory(prev => prev === item.menu_name ? "All" : item.name)} key={index} className="explore-menu-list-item">
               <img className={category===item.name ? "active" : ""} src={item.url} alt="" />
               <p>{item.name}</p>

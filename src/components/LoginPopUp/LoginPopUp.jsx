@@ -47,7 +47,7 @@ const LoginPopUp = ({setShowLogin}) => {
        
         setAuth({ user, roles, name });
         setShowLogin(false)
-        setLoading(false)
+       
         console.log(roles,name);
         Cookies.set('authuserrental', JSON.stringify({ user, roles, name }), { expires: 7 }); // Simpan data auth di cookie
         
@@ -67,6 +67,8 @@ const LoginPopUp = ({setShowLogin}) => {
         } else {
           setErrMsg('Login Failed');
         }
+      } finally {
+        setLoading(false)
       }
     } else {
       try {

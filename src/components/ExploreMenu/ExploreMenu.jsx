@@ -26,7 +26,7 @@ const ExploreMenu = ({category,setCategory,judul}) => {
   }
   useEffect(()=>{  
     getData()
-  },[category]) 
+  },[]) 
   return (
     <div className='explore-menu' id='explore-menu'>
       <h1 className='text-3xl'>{judul ? "" : "Explore Our Camera"}</h1>
